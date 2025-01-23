@@ -17,3 +17,5 @@ namespace TelemetryGroundStation // Certifique-se de que o namespace corresponde
         }
     }
 }
+
+/// so pa ver como funciona o git
