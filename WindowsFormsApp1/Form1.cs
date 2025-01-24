@@ -128,6 +128,26 @@ namespace TelemetryGroundStation
             }
         }
 
+        private void btnStartTelemetry_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (serialPort != null && serialPort.IsOpen)
+                {
+                    serialPort.WriteLine("START_TELEMETRY");
+                    txtLog.AppendText("Comando de início de telemetria enviado.\r\n");
+                }
+                else
+                {
+                    txtLog.AppendText("Porta serial não está aberta. Não foi possível iniciar a telemetria.\r\n");
+                }
+            }
+            catch (Exception ex)
+            {
+                txtLog.AppendText($"Erro ao enviar comando de telemetria: {ex.Message}\r\n");
+            }
+        }
+
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             try
